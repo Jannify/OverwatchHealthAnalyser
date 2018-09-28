@@ -22,53 +22,5 @@ namespace Overwatch_Health_Analyser.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("325")]
-        public int x {
-            get {
-                return ((int)(this["x"]));
-            }
-            set {
-                this["x"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1365")]
-        public int y {
-            get {
-                return ((int)(this["y"]));
-            }
-            set {
-                this["y"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("90")]
-        public int width {
-            get {
-                return ((int)(this["width"]));
-            }
-            set {
-                this["width"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("55")]
-        public int hight {
-            get {
-                return ((int)(this["hight"]));
-            }
-            set {
-                this["hight"] = value;
-            }
-        }
     }
 }

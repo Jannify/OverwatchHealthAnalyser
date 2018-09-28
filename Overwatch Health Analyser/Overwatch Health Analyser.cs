@@ -1,9 +1,7 @@
 ﻿using Emgu.CV;
 using Emgu.CV.OCR;
 using Emgu.CV.Structure;
-using Overwatch_Health_Analyser.Properties;
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Text.RegularExpressions;
@@ -19,7 +17,8 @@ namespace Overwatch_Health_Analyser
         private int fails;
         private bool running;
         private Bitmap actImage;
-        private Rectangle rect = new Rectangle(Settings.Default.x, Settings.Default.y, Settings.Default.width, Settings.Default.hight);
+        private Rectangle orginalRect = new Rectangle(335, 1365, 110, 60);
+        Random rnd;
 
         public Form1()
         {
@@ -27,7 +26,7 @@ namespace Overwatch_Health_Analyser
             last_value = new int[1];
             running = false;
             fails = 0;
-
+            rnd = new Random();
             PythonInstance.ShowColor(0, 0, 0);
 
             button2.Click += (senders, args) => {
@@ -44,21 +43,18 @@ namespace Overwatch_Health_Analyser
             };
 
             button1.Click += (senders, args) => {
-                //if (running == false)
-                //{
                 running = true;
                 pictureBox4.Image = Properties.Resources.On;
                 AppUpdate();
-                //}
             };
         }
 
         private async Task AppUpdate()
         {
-            while (running)
+            while (true)
             {
                 EmguVC();
-                await Task.Delay(5);
+                await Task.Delay(7);
             }
         }
 
@@ -70,6 +66,13 @@ namespace Overwatch_Health_Analyser
             //var gfxScreenshot = Graphics.FromImage(bmpScreenshot);
             //gfxScreenshot.CopyFromScreen(Screen.PrimaryScreen.Bounds.X, Screen.PrimaryScreen.Bounds.Y, 0, 0, Screen.PrimaryScreen.Bounds.Size, CopyPixelOperation.SourceCopy);
             //Image<Bgr, byte> image = LiftImage(bmpScreenshot.Clone(new Rectangle(345, 1365, 140, 55), System.Drawing.Imaging.PixelFormat.Format4bppIndexed));
+
+
+            Rectangle rect = new Rectangle(orginalRect.Location, orginalRect.Size);
+            rect.X += rnd.Next(7) - 3;
+            rect.Y += rnd.Next(7) - 3;
+            rect.Width += rnd.Next(7) - 3;
+            rect.Height += rnd.Next(7) - 3;
 
             Bitmap tmpBitmap = new Bitmap(rect.Width, rect.Height, PixelFormat.Format24bppRgb);
             var gfxScreenshot = Graphics.FromImage(tmpBitmap);
@@ -105,21 +108,21 @@ namespace Overwatch_Health_Analyser
 
         private int[] ValidatHealth(string raw)
         {
-            Debug.WriteLine(raw);
-            int raw_health = new int[] { int.Parse(raw), 1000 };
+            int[] raw_health = null;
             raw = raw.Replace("\r\n", "");
             raw = Regex.Replace(raw, @"\s+", "");
-            //if (raw.Contains("/"))
-            //{
-            //    string[] rawSearchSeperate = raw.Split('/');
-            //    if (rawSearchSeperate.Length == 2 && rawSearchSeperate[0].ToString().Length <= 3 && rawSearchSeperate[0].ToString().Length >= 1 && rawSearchSeperate[1].ToString().Length >= 1)
-            //    {
-            //        raw_health = Array.ConvertAll(rawSearchSeperate, int.Parse);
-            //    }
-            //}
+            if (raw.Contains("/"))
+            {
+                string[] rawSearchSeperate = raw.Split('/');
+                if (rawSearchSeperate.Length == 2 && rawSearchSeperate[0].ToString().Length <= 3 && rawSearchSeperate[0].ToString().Length >= 1 && rawSearchSeperate[1].ToString().Length >= 1)
+                {
+                    raw_health = Array.ConvertAll(rawSearchSeperate, int.Parse);
+                }
+            }
             if (raw_health != null)
             {
-                if ((raw_health[1] / 25) % 1 == 0)
+                if (getMaxhealth() != -1) raw_health[1] = getMaxhealth();
+                else if ((raw_health[1] / 25) % 1 == 0)
                 {
                     raw_health[1] = int.Parse(raw_health[1].ToString().Replace('8', '0'));
                     if ((raw_health[1] / 25) % 1 != 0)
@@ -166,12 +169,16 @@ namespace Overwatch_Health_Analyser
 
         private string HealthToString(int[] health)
         {
-            int h = health[1];
+            return health[0].ToString() + "/" + getMaxhealth(health[1]).ToString();
+        }
+
+        private int getMaxhealth(int healt = -1)
+        {
             if (richTextBox2.Text != "")
             {
-                int.TryParse(richTextBox2.Text, out h);
+                int.TryParse(richTextBox2.Text, out healt);
             }
-            return health[0].ToString() + "/" + h.ToString();
+            return healt;
         }
 
         private void AddFail(int[] health, string raw)
