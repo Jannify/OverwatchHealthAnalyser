@@ -55,7 +55,7 @@
             this.button1.ForeColor = System.Drawing.Color.Lime;
             this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 43);
+            this.button1.Size = new System.Drawing.Size(134, 43);
             this.button1.TabIndex = 14;
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = false;
@@ -63,9 +63,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(305, 218);
+            this.pictureBox1.Location = new System.Drawing.Point(304, 218);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(492, 166);
+            this.pictureBox1.Size = new System.Drawing.Size(484, 166);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
@@ -73,7 +73,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Koverwatch", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(625, 390);
+            this.textBox1.Location = new System.Drawing.Point(626, 390);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(163, 47);
             this.textBox1.TabIndex = 17;
@@ -85,9 +85,9 @@
             this.button2.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.button2.Font = new System.Drawing.Font("Koverwatch", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(12, 59);
+            this.button2.Location = new System.Drawing.Point(12, 58);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 43);
+            this.button2.Size = new System.Drawing.Size(134, 43);
             this.button2.TabIndex = 20;
             this.button2.Text = "Stop";
             this.button2.UseVisualStyleBackColor = false;
@@ -96,7 +96,7 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(12, 218);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(171, 219);
+            this.richTextBox1.Size = new System.Drawing.Size(170, 218);
             this.richTextBox1.TabIndex = 21;
             this.richTextBox1.Text = "";
             // 
@@ -104,7 +104,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Koverwatch", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(55, 133);
+            this.label1.Location = new System.Drawing.Point(56, 133);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 25);
             this.label1.TabIndex = 22;
@@ -114,9 +114,9 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(358, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(304, 12);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(430, 200);
+            this.pictureBox2.Size = new System.Drawing.Size(484, 200);
             this.pictureBox2.TabIndex = 23;
             this.pictureBox2.TabStop = false;
             // 
@@ -140,9 +140,12 @@
             // 
             // richTextBox2
             // 
+            this.richTextBox2.Font = new System.Drawing.Font("Koverwatch", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox2.Location = new System.Drawing.Point(342, 396);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(168, 42);
+            this.richTextBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.richTextBox2.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBox2.Size = new System.Drawing.Size(68, 42);
             this.richTextBox2.TabIndex = 27;
             this.richTextBox2.Text = "";
             // 
@@ -150,7 +153,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Koverwatch", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(229, 404);
+            this.label2.Location = new System.Drawing.Point(230, 404);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 25);
             this.label2.TabIndex = 28;

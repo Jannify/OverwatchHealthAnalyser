@@ -28,6 +28,8 @@ namespace Overwatch_Health_Analyser
             fails = 0;
             rnd = new Random();
             PythonInstance.ShowColor(0, 0, 0);
+            //orginalRect.Height = Convert.ToInt32(Screen.PrimaryScreen.Bounds.Height / 1.172161);
+            orginalRect.Width = Convert.ToInt32(Screen.PrimaryScreen.Bounds.Height / 1.17216);
 
             button2.Click += (senders, args) => {
                 if (running)
